@@ -1,0 +1,692 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Pretty Girl ♡</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Quicksand:wght@400;500;600&family=Caveat:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+   /* VINYL RECORD */
+.vinyl-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 18px 0;
+}
+
+.vinyl {
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    background:
+        repeating-radial-gradient(
+            circle,
+            #292329 0px,
+            #292329 2px,
+            #41353e 3px,
+            #292329 4px
+        );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 5px 15px #a77a8750;
+    animation: spin 4s linear infinite;
+}
+
+.vinyl-center {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #e7aeba;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 17px;
+    border: 3px solid #f8dce2;
+}
+
+.vinyl-caption {
+    font-family: 'Caveat', cursive;
+    font-size: 19px;
+    margin-top: 9px;
+    color: #bd8998;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+body {
+    min-height: 100vh;
+    background: #f7e9eb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Quicksand', sans-serif;
+    color: #87616e;
+}
+
+.container {
+    width: 100%;
+    max-width: 410px;
+    min-height: 590px;
+    background: #fffaf8;
+    border: 1px solid #ead3d8;
+    border-radius: 5px;
+    box-shadow: 0 15px 50px #a77a8720;
+    position: relative;
+    overflow: hidden;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 17px 22px;
+    border-bottom: 1px solid #f1e3e4;
+    font-size: 12px;
+    color: #c18c9a;
+    letter-spacing: 4px;
+}
+
+.topbar span:last-child {
+    letter-spacing: 0;
+    font-size: 18px;
+}
+
+.page {
+    display: none;
+    min-height: 535px;
+    padding: 35px 27px;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: show .7s ease;
+}
+
+.page.active {
+    display: flex;
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.eyebrow {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: #bd8997;
+    margin-bottom: 22px;
+}
+
+h1, h2 {
+    font-family: 'DM Serif Display', serif;
+    font-weight: normal;
+    color: #a16d7d;
+}
+
+h1 {
+    font-size: 49px;
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 13px;
+    line-height: 2;
+    color: #927780;
+}
+<script>{
+
+
+
+function openPage(number) {
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById("p" + number)
+        .classList.add("active");
+
+    window.scrollTo(0,0);
+}
+
+function upload(event, id) {
+    const file = event.target.files[0];
+
+    if (file) {
+        document.getElementById(id).src =
+            URL.createObjectURL(file);
+    }
+}
+// MUSIK MONOKROM
+const bgMusic = document.getElementById("bgMusic");
+const vinyl = document.getElementById("vinyl");
+
+bgMusic.volume = 0.7;
+
+function playMusic() {
+    bgMusic.play().then(() => {
+        vinyl.style.animationPlayState = "running";
+    }).catch(() => {
+        vinyl.style.animationPlayState = "paused";
+    });
+}
+
+window.addEventListener("load", playMusic);
+
+document.addEventListener("click", function () {
+    if (bgMusic.paused) {
+        playMusic();
+    }
+}, { once: true });
+{
+
+}
+
+.script {
+    font-family: 'Caveat', cursive;
+    font-size: 28px;
+    color: #bd8998;
+    margin: 15px 0;
+
+const bgMusic = document.getElementById("bgMusic");
+const vinyl = document.getElementById("vinyl");
+
+bgMusic.volume = 0.7;
+
+// Fungsi pindah halaman sekaligus menjalankan musik
+function openPage(number) {
+
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById("p" + number)
+        .classList.add("active");
+
+    // Musik mulai ketika tombol kejutan pertama ditekan
+    if (number === 2 && bgMusic.paused) {
+        bgMusic.play().then(() => {
+            if (vinyl) {
+                vinyl.style.animationPlayState = "running";
+            }
+        }).catch(error => {
+            console.log("Musik belum bisa diputar:", error);
+        });
+    }
+
+    window.scrollTo(0, 0);
+}
+
+function upload(event, id) {
+    const file = event.target.files[0];
+
+    if (file) {
+        document.getElementById(id).src =
+            URL.createObjectURL(file);
+    }
+}
+}
+<audio id="bgMusic" loop preload="auto">
+    <source src="monokrom.mp3" type="audio/mpeg">
+</audio>
+}
+
+.ornament {
+    color: #d3a2ad;
+    font-size: 37px;
+    margin: 17px 0;
+}
+
+button {
+    padding: 13px 26px;
+    border: 1px solid #d9b1bb;
+    background: #f8e9ec;
+    color: #936b78;
+    border-radius: 30px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    margin-top: 23px;
+    transition: .3s;
+}
+
+button:hover {
+    background: #ebd0d7;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px #d4aab530;
+}
+
+.small {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #c49aa4;
+    margin-top: 28px;
+}
+
+/* Envelope */
+.envelope {
+    width: 190px;
+    height: 130px;
+    background: #edcbd3;
+    position: relative;
+    margin: 35px auto;
+    border-radius: 5px;
+    box-shadow: 0 8px 20px #b98c9630;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    border-left: 95px solid transparent;
+    border-right: 95px solid transparent;
+    border-top: 78px solid #dbaab7;
+}
+
+.envelope::after {
+    content: "♡";
+    position: absolute;
+    font-size: 28px;
+    color: white;
+    z-index: 2;
+}
+
+/* Letter */
+.letter {
+    background: #fcf2f0;
+    border: 1px solid #eedce0;
+    padding: 26px 20px;
+    border-radius: 3px;
+    width: 100%;
+    line-height: 2.1;
+    font-size: 13px;
+    color: #886d75;
+    box-shadow: 0 5px 20px #b98b9515;
+}
+
+/* Photo */
+.polaroid {
+    background: white;
+    padding: 11px 11px 40px;
+    width: 235px;
+    box-shadow: 0 7px 20px #aa849022;
+    transform: rotate(-3deg);
+    margin: 20px auto;
+}
+
+.polaroid img {
+    display: block;
+    width: 100%;
+    height: 245px;
+    object-fit: cover;
+}
+
+.photo-caption {
+    font-family: 'Caveat', cursive;
+    font-size: 23px;
+    color: #a77886;
+    margin-top: 8px;
+}
+
+.upload {
+    font-size: 11px;
+    color: #b17d8d;
+    margin: 10px 0;
+}
+
+.upload input {
+    display: block;
+    width: 190px;
+    margin: 10px auto;
+    font-size: 11px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.gallery-frame {
+    background: white;
+    padding: 7px 7px 22px;
+    box-shadow: 0 4px 12px #b98b951c;
+    transform: rotate(-2deg);
+}
+
+.gallery-frame:nth-child(even) {
+    transform: rotate(2deg);
+}
+
+.gallery-frame img {
+    width: 100%;
+    height: 125px;
+    object-fit: cover;
+}
+
+.gallery-frame input {
+    width: 100%;
+    font-size: 9px;
+    margin-top: 7px;
+}
+
+.last {
+    font-size: 70px;
+    color: #d49cab;
+    margin-bottom: 15px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="topbar">
+    <span>♡ &nbsp; A LITTLE GIFT</span>
+    <span>୨ৎ</span>
+</div>
+
+<!-- PAGE 1 -->
+<section class="page active" id="p1">
+
+    <div class="eyebrow">A SPECIAL DAY FOR SOMEONE SPECIAL</div>
+
+    <div class="ornament">୨୧</div>
+
+    <h1>Happy<br>Birthday</h1>
+
+    <div class="script">pretty girl ♡</div>
+
+    <p>A little surprise made with love, just for you.</p>
+
+    <button onclick="openPage(2)">
+        OPEN MY SURPRISE ♡
+    </button>
+
+    <div class="small">MADE WITH LOVE AND HUGS</div>
+
+</section>
+
+<!-- PAGE 2 -->
+<section class="page" id="p2">
+
+    <div class="eyebrow">A LITTLE SOMETHING FOR YOU</div>
+
+    <h2>You have a letter!</h2>
+
+    <div class="envelope"></div>
+
+    <p>Someone has written something special for you.</p>
+
+    <button onclick="openPage(3)">
+        OPEN ME 💌
+    </button>
+
+</section>
+
+<!-- PAGE 3 -->
+<section class="page" id="p3">
+
+    <div class="eyebrow">A LETTER FROM MY HEART</div>
+
+    <div class="ornament">✿</div>
+
+    <h2>Dear Bestie,</h2>
+    <!-- VINYL MUSIC IN LETTER -->
+<div class="vinyl-container">
+    <div class="vinyl" id="vinyl">
+        <div class="vinyl-center">
+            <span>♡</span>
+        </div>
+    </div>
+
+    <p class="vinyl-caption">
+        A little song for you ♡
+    </p>
+    <p style="font-size:9px; letter-spacing:2px;">
+        TULUS — MONOKROM
+    </p>
+</div>
+
+    <div class="letter">
+        Happy birthday, lovely girl! ♡
+
+        <br><br>
+
+        Selamat bertambah usia.
+        Semoga di umur yang baru ini,
+        banyak hal indah datang ke hidupmu.
+
+        selalu menjadi anak kebanggan ortu
+        jadi kakak teladan bagi zaza 
+         selalu menjadi adikk yang baik dan membaggakan untuk uni mu 
+
+
+        Semoga kamu selalu sehat,
+        bahagia, dan dikelilingi
+        orang-orang yang menyayangimu.
+
+        aamiin sisanya doa sendiri yaaa
+
+        <br><br>
+
+        Teruslah tumbuh menjadi
+        versi terbaik dari dirimu sendiri.
+        You deserve all the happiness!
+
+        terus menjadi orang yang selalu ingin tahu segala hal baik 
+        jangan pernah berhenti jadi orang baik yaaaa hemmmmm
+
+        <br><br>
+
+        With love, ♡
+    </div>
+
+    <button onclick="openPage(4)">
+        SEE YOUR PHOTOS →
+    </button>
+    <audio id="bgMusic" loop>
+    <source src="monokrom.mp3" type="audio/mpeg">
+</audio>
+
+</section>
+
+<!-- PAGE 4 -->
+<section class="page" id="p4">
+
+    <div class="eyebrow">A PRETTY FACE TO CELEBRATE</div>
+
+    <h2>“The Pretty Girl Celebrating Her Birthday Today” 💗</h2>
+
+    <div class="polaroid">
+        <img src="novel.jpeg"
+        alt="Foto bestie">
+        <div class="photo-caption">a pretty soul ♡</div>
+    </div>
+
+
+
+    <p>Keep smiling, you look lovely when you do.</p>
+
+    <button onclick="openPage(5)">
+        OPEN PHOTO GALLERY →
+    </button>
+
+</section>
+
+<!-- PAGE 5 -->
+<section class="page" id="p5">
+
+    <div class="eyebrow">OUR LITTLE MEMORIES</div>
+
+    <h2>Sweet Moments</h2>
+
+    <p>A few little memories worth keeping.</p>
+
+    <div class="gallery">
+
+        <div class="gallery-frame">
+            <img src="pasar.jpeg"
+        alt="Foto bestie">
+        <div class="photo-caption">inget gakkk ini pas kapan ?</div>
+        </div>
+
+        <div class="gallery-frame">
+            <img src="2.jpg"
+        alt="Foto bestie">
+        <div class="photo-caption"> tetap jadi nopel yang ku kenal yoo yang  hihihi</div>
+        </div>
+        
+         <div class="gallery-frame">
+            <img src="hitam.jpeg"
+        alt="Foto bestie">
+        <div class="photo-caption"> LCD TIME HIHIHI</div>
+        </div>
+<div class="gallery-frame">
+            <img src="opi.jpeg"
+        alt="Foto bestie">
+        <div class="photo-caption">klo kesini pasti nak makan samo ngetrip " (opii) "wkwwk</div>
+        </div>
+
+        
+    </div>
+
+    <button onclick="openPage(6)">
+        ONE MORE THING ♡
+    </button>
+
+</section>
+
+<!-- PAGE 6 -->
+<section class="page" id="p6">
+
+    <div class="eyebrow">WISHING YOU THE BEST</div>
+
+    <div class="ornament">୨ৎ</div>
+
+    <h2>A New Chapter</h2>
+
+    <div class="letter">
+        Semoga semua hal yang sedang
+        kamu perjuangkan membuahkan hasil.
+
+        <br><br>
+
+        Semoga langkahmu selalu
+        dimudahkan, rezekimu dilancarkan,
+        dan hatimu tidak pernah
+        kehilangan alasan untuk tersenyum.
+
+        <br><br>
+
+        Be happy, be healthy,
+        and always be yourself.
+    </div>
+
+    <button onclick="openPage(7)">
+        OPEN THE LAST GIFT ♡
+    </button>
+
+</section>
+
+<!-- PAGE 7 -->
+<section class="page" id="p7">
+
+    <div class="eyebrow">A FINAL LITTLE NOTE</div>
+
+    <div class="last">♡</div>
+
+    <h1 style="font-size:40px">
+        Thank You<br>
+        For Being You
+    </h1>
+
+    <div class="script">
+        I am so glad to know you.
+    </div>
+
+    <p>
+        Terima kasih sudah menjadi
+        teman yang menyenangkan.
+
+        Semoga pertemanan ini
+        selalu punya banyak cerita indah.
+
+
+        <br><br>
+
+        Happy birthday once again!
+    </p>
+
+    <div class="script">With love, your bestie ♡</div>
+
+    <button onclick="openPage(1)">
+        READ AGAIN ↺
+    </button>
+
+    <div class="small">END OF YOUR LITTLE SURPRISE</div>
+
+</section>
+
+</div>
+
+<script>
+
+function openPage(number) {
+
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById("p" + number)
+        .classList.add("active");
+
+    window.scrollTo(0,0);
+}
+
+function upload(event, id) {
+
+    const file = event.target.files[0];
+
+    if (file) {
+        document.getElementById(id).src =
+            URL.createObjectURL(file);
+    }
+
+}
+
+</script>
+
+</body>
+</html>
